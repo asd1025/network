@@ -23,7 +23,7 @@ public class NsLookup {
 					for(InetAddress addr:inetAdresses)
 						System.out.println(addr.getHostName()+" : "+addr.getHostAddress());
 					}		
-					out.flush();
+					out.flush(); 
 					out.close();
 					br.close();
 				} catch (UnknownHostException e) {

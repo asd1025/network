@@ -6,3 +6,4 @@ public class UppercaseAlphabetRunnableImpl  extends UppercaseAlphabet implements
 		print();
 	}
 }
+ 

@@ -5,3 +5,4 @@ public class UppercaseAlphabet   {
 		for(char c = 'A'; c<='Z';c++) {System.out.print(c);}
 	}
 }
+ 
