@@ -10,7 +10,7 @@ public static void main(String[] args) {
 	// 기반스트림(원래 소스에다 꽂을 수 있는 애): 표준입력, 키보드, System.in 
 	BufferedReader br= null;
 	
-	try {
+	try { 
 		// 보조스트림1
 		// byte|byte|byte -> char
 		InputStreamReader isr= new InputStreamReader(System.in,"utf-8");

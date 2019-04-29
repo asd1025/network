@@ -26,7 +26,7 @@ public class TCPServer {
 			serverSocket.bind(new InetSocketAddress("0.0.0.0", 6000));
 
 			// 3. accept
-			// : 클라이언트의 연결요청을 기다린다.
+			// : 클라이언트의 연결요청을 기다린다. 
 			Socket socket = serverSocket.accept(); // blocking
 
 			// (클라이언트 누가 접속했는지 남김) 192.168.1.36

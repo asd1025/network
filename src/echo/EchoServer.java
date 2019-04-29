@@ -21,7 +21,7 @@ public class EchoServer {
 			// 1. 서버소켓 생성
 		serverSocket = new ServerSocket();
 		
-		
+		 
 
 		// 2. 주소 바인딩 (binding)
 		serverSocket.bind(new InetSocketAddress("0.0.0.0", PORT));

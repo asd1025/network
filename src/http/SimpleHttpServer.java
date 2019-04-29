@@ -12,7 +12,7 @@ public class SimpleHttpServer {
 	public static void main(String[] args) {
 
 		ServerSocket serverSocket = null;
-
+ 
 		try {
 			// 1. Create Server Socket
 			serverSocket = new ServerSocket();

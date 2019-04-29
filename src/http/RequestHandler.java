@@ -13,7 +13,7 @@ public class RequestHandler extends Thread {
 	
 	public RequestHandler( Socket socket ) {
 		this.socket = socket;
-	}
+	} 
 	
 	@Override
 	public void run() {

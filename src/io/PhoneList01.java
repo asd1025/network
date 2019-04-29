@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
 public class PhoneList01 {
 public static void main(String[] args) {
 	//기반 스트림
-	BufferedReader br=null;
+	BufferedReader br=null; 
 	try {
 		//보조스트림1 (byte -> char )
  		 br=new BufferedReader(new InputStreamReader(new FileInputStream("phone.txt"),"UTF-8"));

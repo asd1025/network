@@ -21,7 +21,7 @@ public class LocalHost {
 //		for(InetAddress addr:inetAddressList)
 //			System.out.println(addr.getHostAddress());
 		
-		byte[] adresses= inetAddress.getAddress();
+		byte[] adresses= inetAddress.getAddress(); 
 		// 192.168.56.1 -> byte로 출력하면 -64 -88 56 1 나옴
 		// byte
 		for(byte address : adresses) {

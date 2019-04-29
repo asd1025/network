@@ -16,7 +16,7 @@ public class PhoneList02 {
 		try {
 			sc = new Scanner(new File("Phone.txt"));
 			while(sc.hasNextLine()) {
-				String name=sc.next();
+				String name=sc.next(); 
 				String phone01=sc.next();
 				String phone02=sc.next();
 				String phone03=sc.next();

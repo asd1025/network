@@ -15,7 +15,7 @@ public class EchoServerReceiveThread extends Thread {
 private Socket socket;
 public EchoServerReceiveThread(Socket socket) {this.socket=socket;}
 @Override
-	public void run() {
+	public void run() { 
 	
 	// (클라이언트 누가 접속했는지 남김) 192.168.1.36
 			InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();

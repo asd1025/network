@@ -22,7 +22,7 @@ public static void main(String[] args) {
 		InputStream is= socket.getInputStream();
 		OutputStream os=socket.getOutputStream();
 		
-		//4. 쓰기
+		//4. 쓰기 
 		String data = "Hello World\n";
 		os.write(data.getBytes("utf-8"));
 		

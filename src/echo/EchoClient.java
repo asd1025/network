@@ -16,7 +16,7 @@ public class EchoClient {
 	private static final int SERVER_PORT=7000;
 	public static void main(String[] args) {
 		Socket socket =null;
-		Scanner scanner=null;
+		Scanner scanner=null; 
 		try {
 			//1. 소켓 생성 / Scanner 생성(표준입출력 연결)
 			scanner=new Scanner(System.in);
