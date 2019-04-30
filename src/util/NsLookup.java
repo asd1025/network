@@ -12,7 +12,7 @@ public class NsLookup {
 
 	public static void main(String[] args) {
 				BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-				OutputStream out=new BufferedOutputStream(System.out);
+				 
 				String hostName;
 				try {
 					while(true) {
@@ -23,13 +23,21 @@ public class NsLookup {
 					for(InetAddress addr:inetAdresses)
 						System.out.println(addr.getHostName()+" : "+addr.getHostAddress());
 					}		
-					out.flush(); 
-					out.close();
-					br.close();
+ 
 				} catch (UnknownHostException e) {
 					e.printStackTrace();
 				}catch (IOException e) {
 					e.printStackTrace();
-				}
+				}finally {
+			try {
+			if(br!=null){
+					br.close();
+			}
+			 
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
