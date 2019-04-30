@@ -23,6 +23,20 @@ public class EchoClient {
 			  socket= new Socket();
 			//2. 서버 연결
 			socket.connect(new InetSocketAddress(SERVER_IP,SERVER_PORT));
+			// 2-1. 소켓 버퍼 사이즈 확인
+			int resceiveBufferSiz=socket.getReceiveBufferSize();
+			int sendBufferSize=socket.getSendBufferSize();
+			System.out.println(resceiveBufferSiz+" : "+sendBufferSize);
+			
+			//2-2. 소켓 버퍼 사이즈 변경
+			socket.setReceiveBufferSize(1024*10);
+			socket.setSendBufferSize(1024*10);
+			 resceiveBufferSiz=socket.getReceiveBufferSize();
+			 sendBufferSize=socket.getSendBufferSize();
+				System.out.println(resceiveBufferSiz+" : "+sendBufferSize);
+
+			
+			
 			// cmd 가서 d: -> cafe24 eclipse-workspace neetwork bin java test.TCPServer
 			
 			//3. IOStream 받아오기
