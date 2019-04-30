@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 
 public class TCPClient {
 	private static final String SERVER_IP="192.168.1.36";
@@ -14,6 +15,33 @@ public static void main(String[] args) {
 	try {
 		//1. 소켓 생성
 		  socket= new Socket();
+			// 2-1. 소켓 버퍼 사이즈 확인
+			int resceiveBufferSiz=socket.getReceiveBufferSize();
+			int sendBufferSize=socket.getSendBufferSize();
+			System.out.println(resceiveBufferSiz+" : "+sendBufferSize);
+			
+			//2-2. 소켓 버퍼 사이즈 변경
+			socket.setReceiveBufferSize(1024*10);
+			socket.setSendBufferSize(1024*10);
+			 resceiveBufferSiz=socket.getReceiveBufferSize();
+			 sendBufferSize=socket.getSendBufferSize();
+				System.out.println(resceiveBufferSiz+" : "+sendBufferSize);
+				
+				//1-3 SO_NODELAY (Nagel Algorithm off)
+			socket.setTcpNoDelay(true);
+			
+			//1-4. SO_TIMEOUT 
+			socket.setSoTimeout(1000);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 		//2. 서버 연결
 		socket.connect(new InetSocketAddress(SERVER_IP,SERVER_PORT));
 		// cmd 가서 d: -> cafe24 eclipse-workspace neetwork bin java test.TCPServer
@@ -39,6 +67,8 @@ public static void main(String[] args) {
 		
 		
 		
+	} catch (SocketTimeoutException e) {
+		System.out.println("[clinet] time out");
 	} catch (IOException e) {
 		e.printStackTrace();
 	} finally {
