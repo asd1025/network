@@ -1,18 +1,28 @@
 package http;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 
  
 public class RequestHandler extends Thread {
-	private static final String DOCUENT_ROOT="./webapp";
+	private static  String documentRoot;
+	static {
+		//class loading시 작동
+			try {
+				documentRoot=new File(RequestHandler.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+				documentRoot+="/webapp";
+				System.out.println("--->>> "+documentRoot);
+			} catch (URISyntaxException e) {
+				e.printStackTrace();
+			}
+		
+	}
 	private Socket socket;
 	
 	public RequestHandler( Socket socket ) {
@@ -81,11 +91,11 @@ public class RequestHandler extends Thread {
 			url="/index.html";
 		}
 //		try {
-//			FileInputStream fs=new FileInputStream(DOCUENT_ROOT+url);
+//			FileInputStream fs=new FileInputStream(documentRoot+url);
 //		} catch (FileNotFoundException e) {// -> 메모리에 객체 정보가 많이 추가 되어있어서 좋은 로직은 아님. (어디서 에러났고 무슨 에러며 등등)
 //			e.printStackTrace();
 //		}
-		File file=new File(DOCUENT_ROOT+url);
+		File file=new File(documentRoot+url);
 		if(file.exists()==false) {
 			/* 응답예시
 			 * HTTP/1.1 404 FILE NOT FOUND\r\n (\r: 캐리지리턴. 커서가 맨 앞으로/ \n : 아래줄로 )
@@ -118,7 +128,7 @@ public class RequestHandler extends Thread {
 	public void  response404Error(OutputStream outputStream, String protocol) {
 		try {
 			 
-			File file=new File(DOCUENT_ROOT+"/error/404.html");
+			File file=new File(documentRoot+"/error/404.html");
 			byte[] body=Files.readAllBytes(file.toPath());
 			String contentType=Files.probeContentType(file.toPath());
 			outputStream.write( (protocol+" 404 FILE NOT FORUND\r\n").getBytes( "UTF-8" ) );
