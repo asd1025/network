@@ -7,17 +7,21 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class EchoClient {
-	private static final String SERVER_IP="192.168.1.36";
+	
+	private static   String SERVER_IP;
 	private static final int SERVER_PORT=7000;
 	public static void main(String[] args) {
 		Socket socket =null;
 		Scanner scanner=null; 
 		try {
+			SERVER_IP=InetAddress.getLocalHost().getHostAddress();
+			System.out.println(SERVER_IP);
 			//1. 소켓 생성 / Scanner 생성(표준입출력 연결)
 			scanner=new Scanner(System.in);
 			  socket= new Socket();

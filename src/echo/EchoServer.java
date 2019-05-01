@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 
 public class EchoServer {
 	private static final int  PORT=7000;
@@ -28,6 +29,8 @@ public class EchoServer {
 		}
 		// (클라이언트 누가 접속했는지 남김) 192.168.1.36
 		 
+	}catch (SocketException e) {
+		e.printStackTrace();
 	} catch (IOException e) {
 		e.printStackTrace();
 	} finally {

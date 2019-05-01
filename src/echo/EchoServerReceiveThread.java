@@ -46,8 +46,8 @@ public EchoServerReceiveThread(Socket socket) {this.socket=socket;}
 				
 
 			}catch (SocketException e) {
-				EchoServer.log(" Sudden Closed by Client : ");
-			}  catch (IOException e) {
+				e.printStackTrace();
+			}catch (IOException e) {
 				e.printStackTrace();
 			} finally {
 				try {
